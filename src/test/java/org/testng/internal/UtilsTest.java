@@ -42,4 +42,49 @@ public class UtilsTest {
     List<String> emptyList = emptyList();
     assertEquals("", Utils.join(emptyList, ","));
   }
+  
+//Test stringToArray
+	  @SuppressWarnings("deprecation")
+	  @Test
+	  public void stringToArrayTestSimple() {
+	    String example = "a, b, c";
+	    String[] result = Utils.stringToArray(example);
+	    
+	    assertEquals(result[0], "a");
+	    assertEquals(result[1], "b");
+	    assertEquals(result[2], "c");
+	  }
+	  
+	  @SuppressWarnings("deprecation")
+	  @Test
+	  public void stringToArrayTestEmpty() {
+		  String example = " ";
+		  String[] result = Utils.stringToArray(example);
+		  assertEquals(result.length, 0);
+	  }
+
+	  
+	  // Test parseMultiLine
+	  @SuppressWarnings("deprecation")
+	  @Test
+	  public void parseMultiLineSimple() {
+		  String example = "a b c";
+		  String[] result = Utils.parseMultiLine(example);
+		  System.out.println("Do we ever see this?");
+		  
+		  assertEquals(result[0], "a");
+		  assertEquals(result[1], "b");
+		  assertEquals(result[2], "c");
+	  }
+	  
+	  @SuppressWarnings("deprecation")
+	  @Test
+	  public void parseMultiLineEmpty() {
+		  String example = " ";
+		  String[] result = Utils.parseMultiLine(example);
+		  
+		  assertEquals(result.length, 0);
+	  }
+	  
+	  
 }
