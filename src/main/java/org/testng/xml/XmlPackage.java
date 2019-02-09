@@ -17,7 +17,9 @@ public class XmlPackage {
   private List<String> m_exclude = Lists.newArrayList();
   private List<XmlClass> m_xmlClasses = null;
 
-  public XmlPackage() {}
+  public XmlPackage() {
+	  m_name = "DEFAULT";
+  }
 
   // For YAML
   public XmlPackage(String name) {

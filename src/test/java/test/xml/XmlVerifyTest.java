@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
+import org.testng.xml.XmlPackage;
 import test.SimpleBaseTest;
 
 import java.lang.reflect.Method;
@@ -106,5 +107,13 @@ public class XmlVerifyTest extends SimpleBaseTest {
     suite.setPreserveOrder((Boolean)null);
     test.setPreserveOrder((Boolean)null);
     Assert.assertNull(test.getPreserveOrder());
+  }
+  
+  @Test
+  public void defaultXmlPackageConstructor() {
+	  XmlPackage testPkg = new XmlPackage();
+	  String name = testPkg.getName();
+	  String xml = testPkg.toXml("[Test]"); // this line previously threw an uncaught exception
+	  Assert.assertEquals(name, "DEFAULT");
   }
 }
